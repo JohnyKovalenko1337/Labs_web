@@ -20,8 +20,8 @@ const maxi = () => {
     let arr = form.input.value.split('');
     let maxNum = Math.max.apply(null, arr);
     alert('Максимальне число:' + maxNum);
-    Document.cookie = "max" + '=' + 'Максимальне число:' + maxNum + ';path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT';
-    console.log(Document.cookie)
+    document.cookie = "max=" + 'Максимальне число:' + maxNum + ';path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT';
+    alert(document.cookie)
 }
 
 const eraseCookie = (name) => {
