@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
-    <title>lab#2</title>
+    <title>lab#3</title>
 </head>
 
-<body>
+<body onload="checkCookie()">
     <div class="wrapper">
         <div class="header">
 
@@ -61,24 +61,27 @@
                 </ul>
             </div>
             <div class="center">
-                <div class="center_up">
-                    zxczxc
+                <div id="#3" class="center_up">
+                    from #333333333333
                 </div>
                 <div class="center_down">
-                    <img usemap="#workmap"
-                        src="https://avatars0.githubusercontent.com/u/51968301?s=460&u=cb490d9a6098d0a5fd3e2ad86eceb17e2fda7311&v=4" />
-                    <map name="workmap">
-                        <area shape="rect" coords="150,30,300,350" href="main.html">
+                    <span style="background-color:red" onmouseout="onMouse()">onMouseOut</span>
+                    <h1 id="square"> </h1>
+                    <h3>enter number</h3>
+                    <form id='form' method='post'>
+                        <input type='number' name='input' />
+                        <input type='button' value='Send' name='send' onclick='maxi()' />
+                    </form>
 
-                    </map>
+
                 </div>
             </div>
             <div class="right">
                 <div class="right_up">
                     zxczxc
                 </div>
-                <div class="right_down">
-                    zxczxc
+                <div id="#6" class="right_down">
+                    from #666666666666666
                 </div>
             </div>
 
@@ -92,7 +95,8 @@
             </div>
         </div>
     </div>
-
+    <script src="main.js">
+    </script>
 </body>
 
 </html>
