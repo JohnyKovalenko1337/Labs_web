@@ -80,6 +80,9 @@ body{
     padding-top:20px;
     height: 40px;
 }
+#form{
+    visibility: hidden;
+}
 .lower{
     height: 200px;
     width: 100%;
