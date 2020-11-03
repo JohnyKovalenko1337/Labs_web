@@ -46,7 +46,7 @@ const deleteCookie = () => {
 const checkCookie = () => {
     if (document.cookie !== "") {
         console.log('The cookie "max" exists ')
-        alert("Cookie - " + cookie, "після натиснення ОК cookie will be deleted")
+        alert("Після натиснення ОК cookie will be deleted")
         deleteCookie();
     }
     else {
