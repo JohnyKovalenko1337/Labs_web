@@ -21,7 +21,7 @@ const maxi = () => {
     let maxNum = Math.max.apply(null, arr);
     alert('Максимальне число:' + maxNum);
     document.cookie = "max=" + 'Максимальне число:' + maxNum + ';path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT;domain=.com';
-    alert(document.cookie)
+    console.log("cookie:" + document.cookie)
 }
 
 const eraseCookie = (name) => {
@@ -44,7 +44,7 @@ const deleteCookie = () => {
 }
 
 const checkCookie = () => {
-    if (document.cookie.split(';').filter((item) => item.trim().startsWith('max=')).length) {
+    if (document.cookie !== "") {
         console.log('The cookie "max" exists ')
         alert("Cookie - " + cookie, "після натиснення ОК cookie will be deleted")
         deleteCookie();
