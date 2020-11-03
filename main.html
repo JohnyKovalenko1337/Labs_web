@@ -8,7 +8,7 @@
     <title>lab#3</title>
 </head>
 
-<body onload="checkCookie()">
+<body onload="checkCookie();checkStorage();storage()">
     <div class="wrapper">
         <div class="header">
 
@@ -16,6 +16,7 @@
                 <h3>
                     Yevhen Kovalenko
                 </h3>
+
             </div>
 
             <div class="head2">
@@ -26,7 +27,7 @@
 
         </div>
         <div class="main">
-            <div class="left">
+            <div id="left" class="left">
                 <ul>
                     <li>
                         <a style="text-decoration: none; color:coral" href="main.html">
@@ -71,14 +72,27 @@
                     <form id='form' method='post'>
                         <input type='number' name='input' />
                         <input type='button' value='Send' name='send' onclick='maxi()' />
+
                     </form>
+                    <div id="check">
+                        <input type="checkbox" id="ch1" onclick="checkStorage()"><label for="ch1">Вирівняти правий та
+                            лівий блок по праву сторону?</label>
+                    </div>
 
 
                 </div>
             </div>
             <div class="right">
-                <div class="right_up">
-                    zxczxc
+                <div id='right' class="right_up">
+                    <div id="textChanging"><span id="spany">text to change!</span>
+                        <form method="POST" onsubmit="saveText()">
+                            <input type='text' name='input' id="add" value="" oninput="addText()" />
+                            <input type='submit' value='Send' name='send' />
+
+                        </form>
+
+                    </div>
+                    <button onclick="deleteFromLocalStorage()">Delete Edits</button>
                 </div>
                 <div id="#6" class="right_down">
                     from #666666666666666
@@ -93,6 +107,7 @@
             <div class="lower2">
                 Yevhen Kovalenko
             </div>
+
         </div>
     </div>
     <script src="main.js">

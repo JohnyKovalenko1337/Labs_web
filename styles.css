@@ -41,7 +41,6 @@ body{
 }
 .left{
     width:25%;
-    text-align: center;
     padding-top: 130px;
     height:400px;
     background-color: brown;
@@ -70,7 +69,6 @@ body{
 }
 .right_up{
     background-color: brown;
-    text-align: center;
     padding-top: 200px;
     height:270px
 }
