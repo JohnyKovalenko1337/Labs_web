@@ -23,7 +23,7 @@ const maxi = () => {
     let arr = form.input.value.split('');
     let maxNum = Math.max.apply(null, arr);
     alert('Максимальне число:' + maxNum);
-    document.cookie = "max=" + 'Максимальне число:' + maxNum + ';path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT;';
+    document.cookie = "max=" + 'Максимальне число:' + maxNum + ';path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT;domain=https://johnykovalenko1337.github.io/Labs_web/main;';
     console.log("cookie:" + document.cookie)
 }
 
