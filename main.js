@@ -1,4 +1,3 @@
-// task 2
 const paralelogram = {
     a: 10,
     b: 20
@@ -8,7 +7,7 @@ const square = () => {
     document.getElementById("square").innerHTML = 'Square of paralelogram:' + 0.5 * paralelogram.a * paralelogram.b;
 };
 square();
-//  ============================= task 5 and 1 =============================================
+
 const onMouse = () => {
     let from3 = document.getElementById("#3").innerText;
     let from6 = document.getElementById("#6").innerText;
@@ -17,45 +16,31 @@ const onMouse = () => {
     document.getElementById('#6').innerHTML = from3;
 };
 
-// ===================================== task 3 ======================================================
-const maxi = () => {
+const task5 = async () => {
     const form = document.getElementById('form');
     let arr = form.input.value.split('');
-    let maxNum = Math.max.apply(null, arr);
-    alert('Максимальне число:' + maxNum);
-    document.cookie = "max=" + 'Максимальне число:' + maxNum + '; Path=/; Expires=Thu, 01 Jan 2070 00:00:01 GMT;';
-    console.log("cookie:" + document.cookie)
+    let sortedArray = await selectionSort([3,5,1,6,4]);
+   console.log(sortedArray)
+
 }
 
-const eraseCookie = (name) => {
-    document.cookie = name + '=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-}
+const selectionSort = (array) => {
+    let i, j, min_index;
 
-const deleteCookie = () => {
-    if (document.cookie.split(';').filter((item) => item.trim().startsWith('max=')).length) {
-        if (confirm("Want to delete cookies?")) {
-            console.log("test");
-            eraseCookie("max");
-            document.getElementById('form').style.visibility = "visible";
-            if (confirm("Cookie is deleted. Do you want to reload the page?")) {
-                location.reload();
+    for (i = 0; i < array.length; i++) {
+        min_index = i;
+        for (j = i + 1; j < array.length; j++) {
+            if (array[j] < array[min_index]) {
+                min_index = j;
             }
-        }
-    } else {
-        document.getElementById('form').style.visibility = "visible";
-    }
-}
 
-const checkCookie = () => {
-    if (document.cookie !== "") {
-        console.log('The cookie "max" exists ')
-        alert("Після натиснення ОК cookie will be deleted")
-        deleteCookie();
+        }
+        let temp = array[j];
+        array[j] = array[min_index];
+        array[min_index] = temp;
+
     }
-    else {
-        document.getElementById('form').style.visibility = "visible";
-        return;
-    }
+    return array;
 };
 
 // ==================================== task 4 ==============================================
@@ -81,28 +66,4 @@ const goAlignRight = () => {
         document.getElementById('right').style.textAlign = 'center';
     }
 };
-
-// ================================= task 6 ==============================
-const addText = () => {
-    document.getElementById('spany').innerHTML = document.getElementById('add').value;
-};
-
-const saveText = () =>{
-    let text = document.getElementById('spany').innerText;
-    localStorage.setItem('texty', text)
-    localStorage.setItem('textFlag', true);
-    document.getElementById('textChanging').innerText = localStorage.getItem('texty');
-};
-
-const storage = () => {
-    if (localStorage.getItem('textFlag') === 'true') {
-        document.getElementById('textChanging').innerText = localStorage.getItem('texty');
-    }
-}
-
-const deleteFromLocalStorage = () =>{
-    localStorage.setItem('textFlag', 0);
-    location.reload();
-}
-
-
+task5();
