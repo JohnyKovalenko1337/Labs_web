@@ -1,3 +1,58 @@
+// ==================================== task 1 ==============================================
+const first = document.getElementById('xx1');
+const second = document.getElementById("xx2");
+const third = document.getElementById("xx3");
+const fourth = document.getElementById("xx4");
+const fifth = document.getElementById("xx5");
+const sixth = document.getElementById("xx6");
+
+const delay = 2000;
+
+let parts = [first, second, third, fourth, fifth, sixth];
+let partsHtml = [];
+
+for (let i = 0; i < parts.length; i++) {
+    partsHtml.push(parts[i].innerHTML);
+}
+
+const task1 = () => {
+
+    for (let i = 0; i < 6; i++) {
+        setTimeout(() => {
+            parts[i].innerHTML = i === 5 ? partsHtml[0] : partsHtml[i + 1];
+        }, 500 + i * delay);
+    }
+}
+task1();
+// ==================================== task 2 ==============================================
+const checkStorage = () => {
+    let check = document.getElementById('ch1');
+    if (check.checked) {
+        localStorage.setItem('checked', true);
+    }
+    else {
+        localStorage.setItem('checked', false);
+    }
+    goAlignRight();
+};
+
+
+const goAlignRight = () => {
+    if (localStorage.getItem('checked') === 'true') {
+        document.getElementById('left').style.textAlign = 'right';
+        document.getElementById('right').style.textAlign = 'right';
+        setInterval(() => {
+            document.getElementById('forbold').style.fontWeight = "bold"
+        }, 5000);
+        setInterval(() => {
+            document.getElementById('forbold').style.fontWeight = "normal"
+        }, 10000)
+    }
+    else {
+        document.getElementById('left').style.textAlign = 'center';
+        document.getElementById('right').style.textAlign = 'center';
+    }
+};
 
 // ====================================== task 3 ===========================================
 const task3 = () => {
@@ -8,23 +63,51 @@ const task3 = () => {
         method: "GET",
     })
         .then(result => {
-            console.log(result);
-        
-            //div.innerText(xd+" : "+ xd);
+            return result.json();
+        })
+        .then(res => {
+            const result = JSON.stringify(res);
+            const parsedRes = JSON.parse(result);
+            console.log(parsedRes);
+            let text = "";
+            parsedRes.forEach(el => {
+                text += el.commit.author.name + " : " + el.commit.message + '            ';
+            })
+            div.innerText = text;
         })
         .catch(err => {
-            //div.innerText(xd+" : "+ xd);
+            div.innerText = "Error : " + err;
         })
 
 };
+
+
+// ==================================== task 4 ==============================================
+const task4 = (callback1, callback2) => {
+    console.log('start');
+    return callback1(callback2);
+}
+
+const callback1 = (callback2) => {
+    console.log("from callback 1");
+    return callback2();
+}
+
+const callback2 = () => {
+    console.log("from callback 2")
+}
+
+task4(callback1, callback2);
 // =================================== task 5 =================================================
 const task5 = async () => {
     const form = document.getElementById('form');
     let arr = form.input.value.split(',');
     let sortedArray = await selectionSort(arr);
+    let text = "";
     sortedArray.forEach(element => {
-        console.log(element);
+        text += element + " ";
     });
+    alert(text);
 }
 
 const selectionSort = (array) => {
@@ -43,44 +126,4 @@ const selectionSort = (array) => {
         array[min_index] = temp;
     }
     return array;
-};
-
-// ==================================== task 4 ==============================================
-const task4 = (callback1, callback2) => {
-    console.log('start');
-    return callback1(callback2);
-}
-
-const callback1 = (callback2) => {
-    console.log("from callback 1");
-    return callback2();
-}
-
-const callback2 = () => {
-    console.log("from callback 2")
-}
-
-task4(callback1, callback2);
-// ==================================== task 2 ==============================================
-const checkStorage = () => {
-    let check = document.getElementById('ch1');
-    if (check.checked) {
-        localStorage.setItem('checked', true);
-    }
-    else {
-        localStorage.setItem('checked', false);
-    }
-    goAlignRight();
-};
-
-
-const goAlignRight = () => {
-    if (localStorage.getItem('checked') === 'true') {
-        document.getElementById('left').style.textAlign = 'right';
-        document.getElementById('right').style.textAlign = 'right';
-    }
-    else {
-        document.getElementById('left').style.textAlign = 'center';
-        document.getElementById('right').style.textAlign = 'center';
-    }
 };
