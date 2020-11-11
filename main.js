@@ -1,27 +1,30 @@
-const paralelogram = {
-    a: 10,
-    b: 20
+
+// ====================================== task 3 ===========================================
+const task3 = () => {
+    const div = document.getElementById('github');
+    const owner = 'JohnyKovalenko1337';
+    const repo = 'Labs_web';
+    fetch(`https://api.github.com/repos/${owner}/${repo}/commits`, {
+        method: "get",
+        headers: { "Content-Type": "application/json" }
+    })
+        .then(result => {
+            console.log(result);
+            //div.innerText(xd+" : "+ xd);
+        })
+        .catch(err => {
+            //div.innerText(xd+" : "+ xd);
+        })
+
 };
-
-const square = () => {
-    document.getElementById("square").innerHTML = 'Square of paralelogram:' + 0.5 * paralelogram.a * paralelogram.b;
-};
-square();
-
-const onMouse = () => {
-    let from3 = document.getElementById("#3").innerText;
-    let from6 = document.getElementById("#6").innerText;
-
-    document.getElementById("#3").innerHTML = from6;
-    document.getElementById('#6').innerHTML = from3;
-};
-
+// =================================== task 5 =================================================
 const task5 = async () => {
     const form = document.getElementById('form');
-    let arr = form.input.value.split('');
-    let sortedArray = await selectionSort([3,5,1,6,4]);
-   console.log(sortedArray)
-
+    let arr = form.input.value.split(',');
+    let sortedArray = await selectionSort(arr);
+    sortedArray.forEach(element => {
+        console.log(element);
+    });
 }
 
 const selectionSort = (array) => {
@@ -35,15 +38,30 @@ const selectionSort = (array) => {
             }
 
         }
-        let temp = array[j];
-        array[j] = array[min_index];
+        let temp = array[i];
+        array[i] = array[min_index];
         array[min_index] = temp;
-
     }
     return array;
 };
 
 // ==================================== task 4 ==============================================
+const task4 = (callback1, callback2) => {
+    console.log('start');
+    return callback1(callback2);
+}
+
+const callback1 = (callback2) => {
+    console.log("from callback 1");
+    return callback2();
+}
+
+const callback2 = () => {
+    console.log("from callback 2")
+}
+
+task4(callback1, callback2);
+// ==================================== task 2 ==============================================
 const checkStorage = () => {
     let check = document.getElementById('ch1');
     if (check.checked) {
@@ -66,4 +84,3 @@ const goAlignRight = () => {
         document.getElementById('right').style.textAlign = 'center';
     }
 };
-task5();

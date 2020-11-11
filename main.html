@@ -8,7 +8,7 @@
     <title>lab#3</title>
 </head>
 
-<body onload="checkCookie();checkStorage();storage()">
+<body onload="checkStorage()">
     <div class="wrapper">
         <div class="header">
 
@@ -68,10 +68,10 @@
                 <div class="center_down">
                     <span style="background-color:red" onmouseout="onMouse()">onMouseOut</span>
                     <h1 id="square"> </h1>
-                    <h3>enter number</h3>
+                    <h3>enter numbers in coma</h3>
                     <form id='form' method='post'>
-                        <input type='number' name='input' />
-                        <input type='button' value='Send' name='send' onclick='maxi()' />
+                        <input type='text' name='input' />
+                        <input type='button' value='Send' name='send' onclick='task5()' />
 
                     </form>
                     <div id="check">
@@ -84,15 +84,8 @@
             </div>
             <div class="right">
                 <div id='right' class="right_up">
-                    <div id="textChanging"><span id="spany">text to change!</span>
-                        <form method="POST" onsubmit="saveText()">
-                            <input type='text' name='input' id="add" value="" oninput="addText()" />
-                            <input type='submit' value='Send' name='send' />
-
-                        </form>
-
-                    </div>
-                    <button onclick="deleteFromLocalStorage()">Delete Edits</button>
+                    <button onclick="task3()">Get info about gitHub commits</button>
+                    <div id="github"><h2>Commits:</h2></div>
                 </div>
                 <div id="#6" class="right_down">
                     from #666666666666666
