@@ -5,15 +5,15 @@ const task3 = () => {
     const owner = 'JohnyKovalenko1337';
     const repo = 'Labs_web';
     fetch(`https://api.github.com/repos/${owner}/${repo}/commits`, {
-        method: "get",
+        method: "GET",
         headers: {
             "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": "*"
-        },
-        mode: 'cors'
+            'Access-Control-Allow-Origin':'*'
+        }
     })
         .then(result => {
             console.log(result);
+        
             //div.innerText(xd+" : "+ xd);
         })
         .catch(err => {
