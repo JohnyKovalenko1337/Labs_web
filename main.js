@@ -9,7 +9,8 @@ const task3 = () => {
         headers: {
             "Content-Type": "application/json",
             "Access-Control-Allow-Origin": "*"
-        }
+        },
+        mode: 'cors'
     })
         .then(result => {
             console.log(result);
