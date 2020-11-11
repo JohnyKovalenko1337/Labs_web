@@ -6,7 +6,10 @@ const task3 = () => {
     const repo = 'Labs_web';
     fetch(`https://api.github.com/repos/${owner}/${repo}/commits`, {
         method: "get",
-        headers: { "Content-Type": "application/json" }
+        headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*"
+        }
     })
         .then(result => {
             console.log(result);
