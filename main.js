@@ -8,7 +8,8 @@ const task3 = () => {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
-            'Access-Control-Allow-Origin':'*'
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type'
         }
     })
         .then(result => {
