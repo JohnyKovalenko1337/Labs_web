@@ -8,7 +8,7 @@
     <title>lab#3</title>
 </head>
 
-<body onload="checkStorage()">
+<body>
     <div class="wrapper">
         <div class="header">
 
@@ -66,27 +66,25 @@
                     from #333333333333
                 </div>
                 <div class="center_down">
-                    <span style="background-color:red" >onMouseOut</span>
-                    <h1 id="square"> </h1>
-                    <h3>enter numbers in coma</h3>
-                    <form id='form' method='post'>
-                        <input type='text' name='input' />
-                        <input type='button' value='Send' name='send' onclick='task5()' />
-
-                    </form>
-                    <div id="check">
-                        <input type="checkbox" id="ch1" onclick="checkStorage()"><label id="forbold" for="ch1">Вирівняти правий та
-                            лівий блок по праву сторону?</label>
+                    <div class="messages">
+                        <p id="message">step 0</p>
                     </div>
-
+                    <div class="butts">
+                        <button onclick="drawAnim()">Play</button>
+                        <button id="start" onclick="startInt()">Start</button>
+                        <button id="reload" style="display: none;" onclick="reloadAnim()">Reload</button>
+                        <button onclick="closeAnim()">Close</button>
+                    </div>
+                    <div >
+                        <canvas id="canvas">
+                        </canvas>
+                    </div>
 
                 </div>
             </div>
-            <div  class="right">
-                <div  id='right' class="right_up">
-                    <button onclick="task3()">Get info about gitHub commits</button>
-                    <h2>Commits:</h2>
-                    <textarea id="github"></textarea>
+            <div class="right">
+                <div id='right' class="right_up">
+                    <textarea id="rofl4"></textarea>
                 </div>
                 <div id="xx4" class="right_down">
                     from #666666666666666
@@ -104,7 +102,7 @@
 
         </div>
     </div>
-    <script src="main.js">
+    <script src="lab5.js">
     </script>
 </body>
 

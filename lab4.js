@@ -102,7 +102,15 @@ task4(callback1, callback2);
 const task5 = async () => {
     const form = document.getElementById('form');
     let arr = form.input.value.split(',');
-    let sortedArray = await selectionSort(arr);
+    let array = [];
+    arr.forEach(el=>{
+        let newy = parseInt(el);
+        if(!isNaN(newy)){
+            array.push(newy);
+
+        }
+    })
+    let sortedArray = await selectionSort(array);
     let text = "";
     sortedArray.forEach(element => {
         text += element + " ";
